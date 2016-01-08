@@ -1,7 +1,7 @@
 var eejs = require('ep_etherpad-lite/node/eejs/');
 var _ = require('ep_etherpad-lite/static/js/underscore');
 
-var colors = ['black', 'red', 'green', 'blue', 'yellow', 'orange'];
+var colors = ['000000', 'f44336', '4caf50', '3f51b5'];
 
 // Add the props to be supported in export
 exports.exportHtmlAdditionalTagsWithData = function(hook, pad, cb){
@@ -43,17 +43,17 @@ exports.stylesForExport = function(hook, padId, cb){
 // }
 
 exports.getLineHTMLForExport = function (hook, context) {
-  rewriteLine(context);
-}
-
-function rewriteLine(context){
   var lineContent = context.lineContent;
-  lineContent = replaceDataByClass(lineContent);
-  // TODO: when "asyncLineHTMLForExport" hook is available on Etherpad, return "lineContent" instead of re-setting it
-  context.lineContent = lineContent;
+  if(lineContent.indexOf('<span data-color') != -1) {
+    lineContent = replaceDataByClass(lineContent);
+    // TODO: when "asyncLineHTMLForExport" hook is available on Etherpad, return "lineContent" instead of re-setting it
+    if(lineContent.slice(-4) != '<br>')
+      lineContent = lineContent + '<br>';
+    context.lineContent = lineContent;
+  }
 }
 
 // Change from <span data-color:x  to <span class:color:x
 function replaceDataByClass(text) {
-  return text.replace(/data-color=["|']([0-9a-zA-Z]+)["|']/gi, "class='color:$1'");
+  return text.replace(/data-color=["|']([0-9a-zA-Z]+)["|']/gi, "style='color: #$1'");
 }

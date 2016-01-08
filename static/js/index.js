@@ -5,7 +5,7 @@ var _ = require('ep_etherpad-lite/static/js/underscore');
 var cssFiles = ["ep_font_color/static/css/color.css"];
 
 // All our colors are block elements, so we just return them.
-var colors = ['black', 'red', 'green', 'blue', 'yellow', 'orange'];
+var colors = ['000000', 'f44336', '4caf50', '3f51b5'];
 
 // Bind the event handler to the toolbar buttons
 var postAceInit = function(hook, context){

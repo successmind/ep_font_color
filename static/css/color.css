@@ -1,6 +1,4 @@
-.color\:black  { color:black; }
-.color\:red    { color:red; }
-.color\:green  { color:green; }
-.color\:blue   { color:blue; }
-.color\:yellow { color:yellow; }
-.color\:orange { color:orange; }
+.color\:000000  { color:black; }
+.color\:f44336    { color:#f44336; }
+.color\:4caf50  { color:#4caf50; }
+.color\:3f51b5   { color: #3f51b5; }

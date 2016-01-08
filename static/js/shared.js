@@ -1,6 +1,6 @@
 var _ = require('ep_etherpad-lite/static/js/underscore');
 
-var colors = ['black', 'red', 'green', 'blue', 'yellow', 'orange'];
+var colors = ['000000', 'f44336', '4caf50', '3f51b5'];
 
 var collectContentPre = function(hook, context){
   var color = /(?:^| )color:([A-Za-z0-9]*)/.exec(context.cls);
